@@ -1,0 +1,3 @@
+# singleton_patterns
+
+test
