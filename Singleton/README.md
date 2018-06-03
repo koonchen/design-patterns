@@ -1,5 +1,15 @@
 # singleton_patterns
 
+## 代码链接
+
+- [java 懒汉](./java/LazySingleton.java)
+- [java 注册表](./java/RegistrySingleton.java)
+- [java 饿汉](./java/HungrySingleton.java)
+- [java 双锁懒汉](./java/DoubleLockSingleton.java)
+
+- [java 内部类](./java/InSingleton.java)
+- [java 枚举](./java/EnumSingleton.java)
+
 ## 要点
 
 
@@ -23,13 +33,15 @@
 ### 基础单例实现
 
 ```java
-public class Singleton {
+public class LazySingleton {
 
-  private static Singleton instance;
+  private LazySingleton() {}
 
-  public static Singleton getInstance() {
+  private static LazySingleton instance;
+
+  public static LazySingleton getInstance() {
     if (instance == null) {
-      instance = new Singleton();
+      instance = new LazySingleton();
     }
     return instance;
   }
@@ -91,4 +103,172 @@ public class RegistrySingleton {
 这是 GoF 书中较为推荐的单例实现。
 
 ***
+
+### java 的其他单例
+
+#### 饿汉单例
+
+上面的代码中的 **基础实现** 属于 java 中的 **懒汉** 单例，与之名称呼应的还有一种 **饿汉** 单例：
+
+```java
+public class HungrySingleton {
+
+  private HungrySingleton() {}
+
+  private static HungrySingleton instance = new HungrySingleton();
+
+  public static HungrySingleton getInstance() {
+    return instance;
+  }
+
+  public void check() {
+    System.out.println("the instance has been created");
+  }
+
+  public static void main(String[] args) {
+    getInstance().check();
+  }
+}
+
+```
+
+这种单例模式虽然线程安全了，但是耗费内存，无法延迟加载。
+
+#### 懒汉单例
+
+于是我们回到 **懒汉** 单例上，为了解决其线程不安全的问题，我们对其进行修改，使其线程安全。
+
+```java
+...
+public static synchronized LazySingleton getInstance() {
+  if (instance == null) {
+    instance = new LazySingleton();
+  }
+  return instance;
+}
+...
+```
+
+但是这样的单例，性能开销极大。
+
+#### 单锁懒汉单例
+
+经过上面的探讨，我们发现将 synchronized 套用在方法上代价太大，不如将其作为块使用。
+
+```java
+...
+public static synchronized LazySingleton getInstance() {
+  if (instance == null) {
+    synchronized (LazySingleton.class) {
+	  instance = new LazySingleton();
+    }
+  }
+  return instance;
+}
+...
+```
+
+虽然加上了锁，但是等到第一个线程实例化完成，跳出，第二个线程还是可能进入 if 实例化另一个实例，因此线程还是不安全的。
+
+#### 双锁懒汉单例
+
+既然如此，不如上两层判断。
+
+```java
+public class DoubleLockSingleton {
+
+  private DoubleLockSingleton() {}
+
+  private static DoubleLockSingleton instance;
+
+  public static DoubleLockSingleton getInstance() {
+    if (instance == null) {
+      synchronized (DoubleLockSingleton.class) {
+        if (instance == null) {
+          instance = new DoubleLockSingleton();
+        }
+      }
+    }
+    return instance;
+  }
+
+  public void check() {
+    System.out.println("the instance has been created");
+  }
+
+  public static void main(String[] args) {
+    getInstance().check();
+  }
+}
+```
+
+现在对了吗？并不一定，当语句不满足原子性时，语句将重排，于是我们需要的 instance 可能存在一种 **不为 null 但是仍然未被初始化** 的状态，这样会报错。
+
+只需要修改变量的可见性即可破解：
+
+```java
+...
+private static volatile DoubleLockSingleton instance;
+...
+```
+
+> volatile 关键字具有屏蔽指令重排的功能，即对 instance 加上了一把锁，在完成写操作之前不会允许其他线程进行读操作，因此，在初始化完成前，无法对其进行读操作
+
+这就组成了完整形态的双锁懒汉。
+
+#### 内部类单例
+
+这样的单例与饿汉相似，但是却又不同。
+
+```java
+public class InSingleton {
+
+  private InSingleton() {}
+
+  private static class InHodler {
+    private static InSingleton instance = new InSingleton();
+  }
+
+  public static InSingleton getInstance() {
+    return InHodler.instance;
+  }
+
+  public void check() {
+    System.out.println("the instance has been created");
+  }
+
+  public static void main(String[] args) {
+    getInstance().check();
+  }
+
+}
+```
+
+饿汉单例在类加载实例化对象，内部类单例在需要的时候进行实例化，线程安全，延迟加载，效率高。
+
+#### 枚举单例
+
+在 Google I/O 2008 上，Joshua Bloch 介绍了这种方法。
+
+```java
+public enum EnumSingleton {
+
+  INSTANCE;
+
+  public void check() {
+    System.out.println("the instance has been created");
+  }
+
+  public static void main(String[] args) {
+    INSTANCE.check();
+  }
+
+}
+```
+
+这应该是现在最佳的单例实践。
+
+***
+
+### python 的其他单例
 
