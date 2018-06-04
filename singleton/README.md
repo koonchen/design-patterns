@@ -1,5 +1,9 @@
 # singleton_patterns
 
+## 博客链接
+
+[空城/初探单例模式](http://koon.cool/singleton.html)
+
 ## 代码链接
 
 >- [java 懒汉](./java/LazySingleton.java) , [py 懒汉](./python/LazySingleton.py)
