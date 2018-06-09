@@ -1,4 +1,4 @@
-# awesome_design_patterns
+# awesome-design-patterns
 
 > 博观而约取，厚积而薄发。——苏轼《稼说》
 
