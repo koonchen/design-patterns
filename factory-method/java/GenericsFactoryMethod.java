@@ -1,3 +1,5 @@
+import com.sun.javadoc.ParameterizedType;
+
 // 需要先定义产品
 abstract class GenericsProduct {
   abstract void productOperation();
@@ -21,7 +23,7 @@ class StandardCreator<T extends GenericsProduct> implements GenericsCreator {
   @Override
   public GenericsProduct factoryMethod() {
     try {
-      T temp = (T) Class.forName(this.clazz.getName()).newInstance();
+      T temp = clazz.newInstance();
       return temp;
     } catch (Exception e) {
       e.printStackTrace();

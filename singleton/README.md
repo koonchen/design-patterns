@@ -1,4 +1,4 @@
-# singleton-patterns
+# singleton-pattern
 
 ## 博客链接
 
