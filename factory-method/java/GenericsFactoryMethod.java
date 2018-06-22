@@ -1,5 +1,3 @@
-import com.sun.javadoc.ParameterizedType;
-
 // 需要先定义产品
 abstract class GenericsProduct {
   abstract void productOperation();
