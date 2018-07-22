@@ -1,4 +1,4 @@
-# 适配器模式
+# adapter-pattern
 
 ## 博客链接
 

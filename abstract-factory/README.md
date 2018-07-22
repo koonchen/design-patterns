@@ -1,4 +1,4 @@
-# 抽象工厂模式
+# abstract-factory-pattern
 
 ## 博客链接
 
