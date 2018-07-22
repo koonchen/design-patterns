@@ -6,5 +6,4 @@
 
 ## 代码链接
 
->- [java 实现](./java/BuilderBasic.java) , [java 改进](./java/BuilderAdv.java)
->- [py 实现](./python/BuilderBasic.py) , [py 改进](./python/BuilderAdv.py)
+>- [java 实现](./java/BridgeClient.java) , [py 实现](./python/BridgeClient.py)
