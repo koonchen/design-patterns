@@ -11,26 +11,32 @@ from __future__ import print_function
 
 from enum import Enum, unique
 
+
 @unique
 class FlyweightType(Enum):
     SHARED = 0
     UNSHARED = 1
 
+
 class Flyweight(object):
     def operation(self):
-        print('Flyweight instance has been created')
+        print("Flyweight instance has been created")
+
 
 class ConcreteFlyweight(Flyweight):
     def operation(self):
-        print('ConcreteFlyweight instance has been created')
+        print("ConcreteFlyweight instance has been created")
+
 
 class UnsharedConcreteFlyweight(Flyweight):
     def operation(self):
-        print('UnsharedConcreteFlyweight instance has been created')
+        print("UnsharedConcreteFlyweight instance has been created")
+
 
 class FlyweightFactory(object):
     def __init__(self):
         self._flyweight_factory = dict()
+
     def get_flyweight(self, flyweight_type):
         flyweight = self._flyweight_factory.get(flyweight_type)
         if flyweight is None:
@@ -42,7 +48,8 @@ class FlyweightFactory(object):
                 self._flyweight_factory[flyweight_type] = flyweight
         return flyweight
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     factory = FlyweightFactory()
     factory.get_flyweight(FlyweightType.SHARED).operation()
     factory.get_flyweight(FlyweightType.UNSHARED).operation()

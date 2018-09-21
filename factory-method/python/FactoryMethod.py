@@ -3,28 +3,38 @@
 
 from abc import abstractmethod, ABCMeta
 
+
 class Product(metaclass=ABCMeta):
-  @abstractmethod
-  def productOperation(self): pass
+    @abstractmethod
+    def productOperation(self):
+        pass
+
 
 class Creator(metaclass=ABCMeta):
-  @abstractmethod
-  def creatorOperaton(self): pass
-  @abstractmethod
-  def factoryMethod(self): pass
+    @abstractmethod
+    def creatorOperaton(self):
+        pass
+
+    @abstractmethod
+    def factoryMethod(self):
+        pass
+
 
 class ConcreteProduct(Product):
-  def productOperation(self):
-    print('Product instance has been created')
+    def productOperation(self):
+        print("Product instance has been created")
+
 
 class ConcreteCreator(Creator):
-  def creatorOperaton(self):
-    print('Creator instance has been created')
-  def factoryMethod(self):
-    return ConcreteProduct();
+    def creatorOperaton(self):
+        print("Creator instance has been created")
 
-if __name__ == '__main__':
-  creator = ConcreteCreator()
-  product = creator.factoryMethod()
-  creator.creatorOperaton()
-  product.productOperation()
+    def factoryMethod(self):
+        return ConcreteProduct()
+
+
+if __name__ == "__main__":
+    creator = ConcreteCreator()
+    product = creator.factoryMethod()
+    creator.creatorOperaton()
+    product.productOperation()
