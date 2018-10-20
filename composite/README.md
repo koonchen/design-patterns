@@ -2,7 +2,7 @@
 
 ## 博客链接
 
-[空城/初探组合模式](http://koon.cool/composite.html)
+[空城/初探组合模式](http://koon.cool/design-pattern/2018-07-26-composite/)
 
 ## 代码链接
 

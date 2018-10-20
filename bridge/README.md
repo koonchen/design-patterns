@@ -2,7 +2,7 @@
 
 ## 博客链接
 
-[空城/初探桥接模式](http://koon.cool/bridge.html)
+[空城/初探桥接模式](http://koon.cool/design-pattern/2018-07-22-bridge/)
 
 ## 代码链接
 

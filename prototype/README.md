@@ -2,7 +2,7 @@
 
 ## 博客链接
 
-[空城/初探原型模式](http://koon.cool/prototype.html)
+[空城/初探原型模式](http://koon.cool/design-pattern/2018-07-04-prototype/)
 
 ## 代码链接
 

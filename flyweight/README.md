@@ -2,7 +2,7 @@
 
 ## 博客链接
 
-[空城/初探享元模式](http://koon.cool/flyweight.html)
+[空城/初探享元模式](http://koon.cool/design-pattern/2018-08-23-flyweight/)
 
 ## 代码链接
 

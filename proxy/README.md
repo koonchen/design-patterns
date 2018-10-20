@@ -2,7 +2,7 @@
 
 ## 博客链接
 
-[空城/初探代理模式](http://koon.cool/proxy.html)
+[空城/初探代理模式](http://koon.cool/design-pattern/2018-08-27-proxy/)
 
 ## 代码链接
 
