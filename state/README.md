@@ -6,4 +6,4 @@
 
 ## 代码链接
 
->- [java 懒汉](./java/StateClient.java)
+>- [java 实现](./java/StateClient.java)
