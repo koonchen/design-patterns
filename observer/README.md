@@ -2,7 +2,7 @@
 
 ## 博客链接
 
-[空城/初探备忘录模式](http://koon.cool/design-pattern/2018-11-28-observer/)
+[初探备忘录模式](http://chenzeping.com/design-pattern/2018-11-28-observer/)
 
 ## 代码链接
 

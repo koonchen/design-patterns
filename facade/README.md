@@ -2,7 +2,7 @@
 
 ## 博客链接
 
-[空城/初探外观模式](http://koon.cool/design-pattern/2018-08-15-facade/)
+[初探外观模式](http://chenzeping.com/design-pattern/2018-08-15-facade/)
 
 ## 代码链接
 

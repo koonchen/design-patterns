@@ -2,7 +2,7 @@
 
 ## 博客链接
 
-[空城/初探工厂方法模式](http://koon.cool/design-pattern/2018-06-11-factory-method/)
+[初探工厂方法模式](http://chenzeping.com/design-pattern/2018-06-11-factory-method/)
 
 ## 代码链接
 

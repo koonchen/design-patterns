@@ -2,7 +2,7 @@
 
 ## 博客链接
 
-[空城/初探抽象工厂模式](http://koon.cool/design-pattern/2018-06-23-abstract-factory/)
+[初探抽象工厂模式](http://chenzeping.com/design-pattern/2018-06-23-abstract-factory/)
 
 ## 代码链接
 
